@@ -1,0 +1,145 @@
+<html>
+<meta charset="UTF-8">
+
+<head>
+    <!--这是一段注释。注释不会在浏览器中显示。#FF0000;-->
+    <!--注释语句格式就是这样。X-->
+    <title>Code Runner</title>
+    <style>
+        #L0 {
+            width: 0px;
+            height: 0px;
+            background: #000000;
+            position: absolute;
+            left: 0px;
+            top: 260px;
+        }
+        
+        #L1 {
+            width: 0px;
+            height: 0px;
+            background: #000000;
+            position: absolute;
+            right: 80px;
+            top: 260px;
+        }
+        
+        #L2 {
+            width: 0px;
+            height: 0px;
+            background: #000000;
+            position: absolute;
+            right: 80px;
+            top: 0px;
+        }
+        
+        #L3 {
+            width: 0px;
+            height: 0px;
+            background: #000000;
+            position: absolute;
+            left: 80px;
+            top: 0px;
+        }
+        
+        runner {
+            color: #333333;
+            font-size: 64px;
+            font-Weight: bold;
+            text-shadow: 3px 3px 3px #666666;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="L0">
+        <runner id="A1">
+            一
+        </runner>
+        <div id="L3">
+            <runner id="A2">
+                分
+            </runner>
+            <div id="L3">
+                <runner id="A3">
+                    耕
+                </runner>
+                <div id="L3">
+                    <runner id="A4">
+                        耘
+                    </runner>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="L1">
+        <runner id="A5">
+            一
+        </runner>
+        <div id="L2">
+            <runner id="A6">
+                分
+            </runner>
+            <div id="L2">
+                <runner id="A7">
+                    收
+                </runner>
+                <div id="L2">
+                    <runner id="A8">
+                        获
+                    </runner>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var tx1 = document.getElementById("A1");
+        var tx2 = document.getElementById("A2");
+        var tx3 = document.getElementById("A3");
+        var tx4 = document.getElementById("A4");
+        var tx5 = document.getElementById("A5");
+        var tx6 = document.getElementById("A6");
+        var tx7 = document.getElementById("A7");
+        var tx8 = document.getElementById("A8");
+        var buffer = [tx1, tx2, tx3, tx4, tx5, tx6, tx7, tx8];
+        var Color = ["#e94a87",
+            "#faa507",
+            "#b9fa07",
+            "#40fa07",
+            "#07faa9",
+            "#078dfa",
+            "#070bfa",
+            "#de07fa"
+        ];
+        var count = 0;
+        var cs = 0;
+
+        function sleep()　　 {
+            if (count == 4) {
+                count = 0;
+                cs = cs + 1;
+                if (cs == 4) {
+                    cs = 0;
+                    var tester = setTimeout("sleep()", 500);
+                } else {
+                    var tester = setTimeout("sleep()", 500);
+                }
+            }　
+            else {
+                buffer[count].style.color = Color[cs];
+                buffer[count + 4].style.color = Color[cs];
+                count = count + 1;
+                var tester = setTimeout("clean()", 100);
+            }　　
+        }
+
+        function clean()　　 {　
+            buffer[count - 1].style.color = "#333333";
+            buffer[count + 3].style.color = "#333333";　
+            var tester = setTimeout("sleep()", 50);　
+        }
+        var tester = setTimeout("sleep()", 1000);
+    </script>
+</body>
+
+</html>
